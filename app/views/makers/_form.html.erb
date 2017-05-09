@@ -1,0 +1,13 @@
+
+<%= form_for(@maker) do |f| %>
+  <p>
+    <%= f.number_field :codigo, placeholder: "Codigo" %>
+  </p>
+  <p>
+    <%= f.text_field :sector, placeholder: "Sector" %>  
+  </p>
+  <p>
+    <%= f.text_field :unidad_ejecutora, placeholder: "Unidad Ejecutora" %>  
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

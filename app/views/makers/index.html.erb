@@ -1,0 +1,26 @@
+<h1>Bienvenido a la direccion Nacional de Planeacion</h1>
+
+<h2>Ejecucion presupuesto general de inversion</h2>
+
+<%= link_to "Crear ejecutor de proyecto",  new_maker_path%>
+
+<h2>Ejecutores de proyectos Actuales</h2>
+<ul>
+  <% @makers.each do |maker| %>
+    <div>
+    <li>
+      <%= link_to maker.unidad_ejecutora, maker_path(maker.id)  %>
+      
+      <%= form_tag(maker_path(maker.id), method: :delete, data: { confirm: 'Estas seguro de eliminar este ejecutor?' }) do%>
+        <%= button_tag( class: "btn pull-right") do %>
+            <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+      <% end %>
+      <%= link_to edit_maker_path(maker.id), class: "btn icon pull-right" do  %>
+        <span class="glyphicon glyphicon-pencil"></span>
+      <% end %> 
+      
+    </li> 
+    </div>
+  <% end %>
+</ul>

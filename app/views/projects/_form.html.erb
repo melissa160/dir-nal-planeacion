@@ -1,0 +1,28 @@
+
+<%= form_for([type_obj, type_obj_new]) do |f| %>
+  <p>
+    <%= f.text_field :nombre, placeholder: "Nombre Proyecto" %>
+  </p>
+  <p>
+    <%= f.number_field :year, placeholder: "Año" %>  
+  </p>
+  <p>
+    <%= f.number_field :apropiacion_inicial, placeholder: "Apropiacion inicial" %>  
+  </p>
+  <p>
+    <%= f.number_field :apropiacion_vigente, placeholder: "Apropiacion vigente" %>  
+  </p>
+  <p>
+    <%= f.number_field :compromisos, placeholder: "Compromisos" %>  
+  </p>
+  <p>
+    <%= f.number_field :obligaciones, placeholder: "Obligaciones" %>  
+  </p>
+
+  <p>
+    <%= f.number_field :pagos, placeholder: "Pagos" %>  
+  </p>
+
+  <p><%= f.submit %></p>
+
+<% end %>

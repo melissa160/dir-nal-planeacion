@@ -1,0 +1,1 @@
+json.array! @makers, :id, :codigo, :sector, :unidad_ejecutora, :created_at, :updated_at 
