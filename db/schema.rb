@@ -10,18 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509162003) do
+ActiveRecord::Schema.define(version: 20170509162630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "executors", force: :cascade do |t|
-    t.integer  "codigo"
-    t.string   "sector"
-    t.string   "unidad_ejecutora"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
 
   create_table "makers", force: :cascade do |t|
     t.integer  "codigo"
@@ -33,13 +25,21 @@ ActiveRecord::Schema.define(version: 20170509162003) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "nombre"
-    t.integer  "apropiacion_inicial"
-    t.integer  "apropiacion_vigente"
-    t.integer  "compromisos"
-    t.integer  "obligaciones"
-    t.integer  "pagos"
+    t.float    "apropiacion_inicial"
+    t.float    "apropiacion_vigente"
+    t.float    "compromisos"
+    t.float    "obligaciones"
+    t.float    "pagos"
+    t.integer  "maker_id"
+    t.integer  "year_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  create_table "years", force: :cascade do |t|
+    t.string   "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
