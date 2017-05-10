@@ -6,6 +6,6 @@ class YearTest < ActiveSupport::TestCase
   # end
   test 'should not save year without year' do
     year = Year.new
-    assert_not project.save
+    assert_not year.save
   end
 end
