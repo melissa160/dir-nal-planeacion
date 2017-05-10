@@ -4,6 +4,7 @@
     <%= f.text_field :nombre, placeholder: "Nombre Proyecto" %>
   </p>
   <p>
+    <%= label(:year, "Escoge el año")%>
     <%= collection_select(:year_id, :year_id, Year.all, :id, :year) %>  
   </p>
   <p>
