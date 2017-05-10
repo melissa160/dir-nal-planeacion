@@ -1,0 +1,1 @@
+json.array! @projects, :nombre, :apropiacion_inicial, :apropiacion_vigente, :compromisos, :obligaciones, :pagos, :maker_id, :year_id, :created_at, :updated_at 
