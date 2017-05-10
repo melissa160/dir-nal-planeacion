@@ -8,14 +8,21 @@
   </article>
 
   <h3>Proyectos asociados a este ejecutor</h3>
-  <ul>
+  <table >
+  <tr >
+    <th class="text-center">Año</th>
+    <th class="text-center">Nombre proyecto</th> 
+    <th class="text-center">Presupuesto Vigente</th>
+  </tr>
   <% @maker.projects.each do |project| %>
-    <li>
-      <%= link_to project.nombre, maker_project_path(project.id)  %>
-    </li>
+    <tr>
+      <td><%= project.year.year %></td>
+      <td><%= link_to project.nombre, maker_project_path(project.id)  %></td>
+      <td><%= number_to_currency(project.apropiacion_vigente, precision: 0) %></td>
+    </tr>
 
   <% end  %>
-  </ul>
+  </table>
 
   <h3>Ingresa un nuevo proyecto para este ejecutor</h3>
   <%= render :partial => 'projects/form', :locals => {:type_obj => @maker, :type_obj_new => @maker.projects.new } %>

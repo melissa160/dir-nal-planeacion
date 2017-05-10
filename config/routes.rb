@@ -13,9 +13,11 @@ Rails.application.routes.draw do
   resources :makers do
     collection {post :import}
     collection {post :search}
-    resources :projects do
-      collection {post :import}
-    end
+    resources :projects 
+  end
+
+  resources :projects do
+    collection {post :import}
   end
   #post '/makers/import', to: 'makers#import'
   

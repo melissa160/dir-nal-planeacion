@@ -1,8 +1,23 @@
 <div class="container">
+  <h3 class="text-center">Ejecucion presupuesto general de inversion Direccion Nacional de Planeacion</h3>
   
-  <h2 class="text-center">Bienvenido a la direccion Nacional de Planeacion</h2>
+  <% if flash[:notice] %>
+    <div class="alert alert-success"><%= flash[:notice] %></div>
+  <% end %>
 
-  <h3 class="text-center">Ejecucion presupuesto general de inversion</h3>
+  <h3>Importar Ejecutores de proyectos</h3>
+  <p>Tu archivo debe ser CSV y debe contener los siguientes 3 campos: codigo, sector, unidad_ejecutora</p>
+  <%= form_tag(import_makers_path, multipart: true) do %>
+    <%= file_field_tag :file, class: "" %>
+    <%= submit_tag "Importar CSV", class: "btn btn-info" %>
+  <% end %>
+
+  <h3>Importar Proyectos</h3>
+  <p>Tu archivo debe ser CSV y debe contener los siguientes 8 campos: nombre, apropiacion_inicial, apropiacion_vigente, compromisos, obligaciones, pagos, maker_id, year_id</p>
+  <%= form_tag(import_projects_path, multipart: true) do %>
+    <%= file_field_tag :file, class: "" %>
+    <%= submit_tag "Importar CSV", class: "btn btn-info" %>
+  <% end %>
 
   <h3>Ejecutores de proyectos Actuales</h3>
   <p>Por defecto se muestran los ultimos 5 ejecutores de proyectos. Escribe el numero de ejecutores que quieres ver:
@@ -32,18 +47,4 @@
   </table>
   <p><%= link_to "Crear ejecutor de proyecto",  new_maker_path, class: "btn btn-info"%></p>
 
-
-  <h3>Importar Ejecutores de proyectos</h3>
-  <p>Tu archivo debe ser CSV y debe contener los siguientes 3 campos: codigo, sector, unidad_ejecutora</p>
-  <%= form_tag(import_makers_path, multipart: true) do %>
-    <%= file_field_tag :file, class: "" %>
-    <%= submit_tag "Importar CSV", class: "btn btn-info" %>
-  <% end %>
-
-  <h3>Importar Proyectos</h3>
-  <p>Tu archivo debe ser CSV y debe contener los siguientes 8 campos: nombre, apropiacion_inicial, apropiacion_vigente, compromisos, obligaciones, pagos, maker_id, year_id</p>
-  <%= form_tag(import_makers_path, multipart: true) do %>
-    <%= file_field_tag :file, class: "" %>
-    <%= submit_tag "Importar CSV", class: "btn btn-info" %>
-  <% end %>
 </div>
