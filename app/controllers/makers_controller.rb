@@ -6,7 +6,7 @@ class MakersController < ApplicationController
 
   def search
     @makers = Maker.limit(params[:results])
-    redirect_to root_url
+    render :index
   end
   
   def import
