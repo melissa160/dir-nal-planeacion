@@ -19,8 +19,12 @@ class MakersController < ApplicationController
   end
 
   def create
-    @maker = Maker.create(maker_params)
-    redirect_to maker_path(@maker.id)
+    @maker = Maker.new(maker_params)
+    if @maker.save
+      redirect_to maker_path(@maker.id)  
+    else
+      render 'new'
+    end
   end
 
   def show

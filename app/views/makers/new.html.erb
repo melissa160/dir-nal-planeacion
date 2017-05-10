@@ -1,6 +1,17 @@
 <div class="container">
   
   <h1>Crear Ejecutor de proyecto</h1>
+    <% if @maker.errors.any? %>
+      <p class="alert alert-danger">
+        <%= pluralize(@maker.errors.count, "error") %> 
+        no permiten que se guarde el ejecutor:
+      </p>
+      <ul>
+        <% @maker.errors.full_messages.each do |msg| %>
+          <li class="alert alert-danger"><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
   <%= render 'form' %>
 
 </div>

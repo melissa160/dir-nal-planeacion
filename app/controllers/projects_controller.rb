@@ -9,8 +9,14 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.create!(project_params)
-    redirect_to maker_path(@project.maker_id)
+    @project = Project.new(project_params)
+    @maker = Maker.find(params[:maker_id])
+    if @project.save
+      redirect_to maker_path(@project.maker_id)
+    else
+      render 'makers/show'
+    end
+    
   end
 
   def show
