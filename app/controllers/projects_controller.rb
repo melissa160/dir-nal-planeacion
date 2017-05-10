@@ -3,6 +3,11 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
+  def import
+    Project.import(params[:file])
+    redirect_to root_url, notice: "Proyectos importados exitosamente"
+  end
+
   def create
     @project = Project.create(project_params)
     redirect_to maker_path(@project.maker_id)

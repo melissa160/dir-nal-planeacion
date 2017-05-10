@@ -1,4 +1,11 @@
 class Project < ApplicationRecord
+  require 'csv'
   belongs_to :maker
   belongs_to :year
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      Project.create row.to_hash
+    end 
+  end
 end
