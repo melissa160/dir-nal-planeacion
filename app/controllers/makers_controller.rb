@@ -1,7 +1,17 @@
 class MakersController < ApplicationController
   
   def index
-    @makers = Maker.all
+    @makers = Maker.limit(5)
+  end
+
+  def search
+    @makers = Maker.limit(params[:results])
+    redirect_to root_url
+  end
+  
+  def import
+    Maker.import(params[:file])
+    redirect_to root_url, notice: "Ejecutores importados exitosamente"
   end
   
   def new

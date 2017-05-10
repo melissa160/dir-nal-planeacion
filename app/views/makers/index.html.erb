@@ -1,26 +1,42 @@
+<div class="container">
+  
 <h1>Bienvenido a la direccion Nacional de Planeacion</h1>
 
 <h2>Ejecucion presupuesto general de inversion</h2>
 
-<%= link_to "Crear ejecutor de proyecto",  new_maker_path%>
+<%= link_to "Crear ejecutor de proyecto",  new_maker_path, class: "btn btn-success"%>
 
 <h2>Ejecutores de proyectos Actuales</h2>
-<ul>
-  <% @makers.each do |maker| %>
-    <div>
-    <li>
-      <%= link_to maker.unidad_ejecutora, maker_path(maker.id)  %>
-      
-      <%= form_tag(maker_path(maker.id), method: :delete, data: { confirm: 'Estas seguro de eliminar este ejecutor?' }) do%>
-        <%= button_tag( class: "btn pull-right") do %>
-            <span class="glyphicon glyphicon-trash"></span>
-        <% end %>
-      <% end %>
-      <%= link_to edit_maker_path(maker.id), class: "btn icon pull-right" do  %>
-        <span class="glyphicon glyphicon-pencil"></span>
-      <% end %> 
-      
-    </li> 
-    </div>
+<h5>Escribe el numero de resultados que quieres ver:
+  <%= form_tag(import_makers_path, multipart: true) do %>
+    <%= text_field_tag :results %>
+    <%= submit_tag "Buscar", class: "btn btn-success" %>
   <% end %>
-</ul>
+
+</h5>
+<table style="width:50%">
+  <% @makers.each do |maker| %>
+    <tr>
+      <td><%= link_to maker.unidad_ejecutora, maker_path(maker.id), class: "btn btn-warning"  %></td>
+      <td>
+        <%= form_tag(maker_path(maker.id), method: :delete, data: { confirm: 'Estas seguro de eliminar este ejecutor?' }) do%>
+          <%= button_tag( class: "btn btn-warning pull-right") do %>
+            <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to edit_maker_path(maker.id), class: "btn btn-warning pull-right" do  %>
+          <span class="glyphicon glyphicon-pencil"></span>
+        <% end %>
+      </td>
+    </tr> 
+  <% end %>
+</table>
+
+<h2>Importar datos</h2>
+<%= form_tag(import_makers_path, multipart: true) do %>
+  <%= file_field_tag :file, class: "" %>
+  <%= submit_tag "Importar CSV", class: "btn btn-success" %>
+<% end %>
+</div>
