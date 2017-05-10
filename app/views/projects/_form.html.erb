@@ -4,7 +4,7 @@
     <%= f.text_field :nombre, placeholder: "Nombre Proyecto" %>
   </p>
   <p>
-    <%= f.number_field :year, placeholder: "Año" %>  
+    <%= collection_select(:year_id, :year_id, Year.all, :id, :year) %>  
   </p>
   <p>
     <%= f.number_field :apropiacion_inicial, placeholder: "Apropiacion inicial" %>  

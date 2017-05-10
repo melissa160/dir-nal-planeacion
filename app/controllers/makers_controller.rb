@@ -25,6 +25,7 @@ class MakersController < ApplicationController
 
   def show
     @maker = Maker.find(params[:id])
+    @year = Year.all
   end
 
   def edit

@@ -1,11 +1,24 @@
 <div class="container">
 
   <h2>Detalles del proyecto</h2>
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Apropiacion Inicial</th> 
+      <th>Apropiacion Vigente</th>
+      <th>Compromisos</th>
+      <th>Obligaciones</th>
+      <th>Pagos</th>
+    </tr>
+    <tr>
+      <td><%= @project.nombre %></td>
+      <td><%= number_to_currency(@project.apropiacion_inicial, precision: 0) %></td>
+      <td><%= number_to_currency(@project.apropiacion_vigente, precision: 0) %></td>
+      <td><%= number_to_currency(@project.compromisos, precision: 0)  %></td>
+      <td><%= number_to_currency(@project.obligaciones)  %></td>
+      <td><%= number_to_currency(@project.pagos, precision: 0) %></td>
+    </tr>
+  </table>
+  <%= link_to "Volver al ejecutor de este proyecto", maker_path(@project.maker_id) %>
 
-  <p>Nombre: <%= @project.nombre %></p>
-  <p>Apropiacion Inicial: <%= @project.apropiacion_inicial %></p>
-  <p>Apropiacion Vigente<%= @project.apropiacion_vigente %></p>
-  <p>Compromisos: <%= @project.compromisos  %></p>
-  <p>Obligaciones: <%= @project.obligaciones  %></p>
-  <p>Pagos<%= @project.pagos %></p>
 </div>

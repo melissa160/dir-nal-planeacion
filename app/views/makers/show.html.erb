@@ -17,7 +17,7 @@
   <% @maker.projects.each do |project| %>
     <tr>
       <td><%= project.year.year %></td>
-      <td><%= link_to project.nombre, maker_project_path(project.id)  %></td>
+      <td><%= link_to project.nombre, maker_project_path(@maker.id, project.id)  %></td>
       <td><%= number_to_currency(project.apropiacion_vigente, precision: 0) %></td>
     </tr>
 
@@ -25,6 +25,6 @@
   </table>
 
   <h3>Ingresa un nuevo proyecto para este ejecutor</h3>
-  <%= render :partial => 'projects/form', :locals => {:type_obj => @maker, :type_obj_new => @maker.projects.new } %>
+  <%= render :partial => 'projects/form', :locals => {:type_obj => @maker, :type_obj_new => @maker.projects.new, :year => @year } %>
 
 </div>

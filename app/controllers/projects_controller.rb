@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.create(project_params)
+    @project = Project.create!(project_params)
     redirect_to maker_path(@project.maker_id)
   end
 
@@ -21,6 +21,6 @@ class ProjectsController < ApplicationController
   def project_params     
   params.require(:project).permit( :nombre,
 :apropiacion_inicial, :apropiacion_vigente, :compromisos, :obligaciones,
-:pagos).merge(maker_id: params[:maker_id], year_id: 1)
+:pagos).merge(maker_id: params[:maker_id], year_id: params[:year_id][:year_id] )
   end
 end
