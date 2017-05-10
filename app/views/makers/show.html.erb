@@ -1,13 +1,13 @@
 <div class="container">
 
-  <%= link_to "Volver", makers_path %>
+  <%= link_to "Volver a la página principal", makers_path %>
   <article>
-    <h2>Unidad Ejecutora: <%= @maker.unidad_ejecutora %> </h2>
+    <h3>Unidad Ejecutora: <%= @maker.unidad_ejecutora %> </h3>
       <p>Codigo: <%= @maker.codigo %></p>
       <p>Sector: <%= @maker.sector %></p>
   </article>
 
-  <h2>Proyectos asociados a este ejecutor</h2>
+  <h3>Proyectos asociados a este ejecutor</h3>
   <ul>
   <% @maker.projects.each do |project| %>
     <li>
@@ -17,7 +17,7 @@
   <% end  %>
   </ul>
 
-  <h2>Ingresa un nuevo proyecto</h2>
+  <h3>Ingresa un nuevo proyecto para este ejecutor</h3>
   <%= render :partial => 'projects/form', :locals => {:type_obj => @maker, :type_obj_new => @maker.projects.new } %>
 
 </div>
