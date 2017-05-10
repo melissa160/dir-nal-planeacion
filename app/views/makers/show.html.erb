@@ -1,19 +1,23 @@
-<%= link_to "Volver", makers_path %>
-<article>
-  <h2>Unidad Ejecutora: <%= @maker.unidad_ejecutora %> </h2>
-    <p>Codigo: <%= @maker.codigo %></p>
-    <p>Sector: <%= @maker.sector %></p>
-</article>
+<div class="container">
 
-<h2>Proyectos asociados a este ejecutor</h2>
-<ul>
-<% @maker.projects.each do |project| %>
-  <li>
-    <%= link_to project.nombre, maker_project_path(project.id)  %>
-  </li>
+  <%= link_to "Volver", makers_path %>
+  <article>
+    <h2>Unidad Ejecutora: <%= @maker.unidad_ejecutora %> </h2>
+      <p>Codigo: <%= @maker.codigo %></p>
+      <p>Sector: <%= @maker.sector %></p>
+  </article>
 
-<% end  %>
-</ul>
+  <h2>Proyectos asociados a este ejecutor</h2>
+  <ul>
+  <% @maker.projects.each do |project| %>
+    <li>
+      <%= link_to project.nombre, maker_project_path(project.id)  %>
+    </li>
 
-<h2>Ingresa un nuevo proyecto</h2>
-<%= render :partial => 'projects/form', :locals => {:type_obj => @maker, :type_obj_new => @maker.projects.new } %>
+  <% end  %>
+  </ul>
+
+  <h2>Ingresa un nuevo proyecto</h2>
+  <%= render :partial => 'projects/form', :locals => {:type_obj => @maker, :type_obj_new => @maker.projects.new } %>
+
+</div>

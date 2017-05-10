@@ -1,11 +1,11 @@
 class MakersController < ApplicationController
   
   def index
-    @makers = Maker.limit(5)
+    @makers = Maker.limit(5).order('id desc')
   end
 
   def search
-    @makers = Maker.limit(params[:results])
+    @makers = Maker.limit(params[:results]).order('id desc')
     render :index
   end
   
