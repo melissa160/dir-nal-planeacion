@@ -26,11 +26,11 @@
     <th class="text-center">Nombre proyecto</th> 
     <th class="text-center">Presupuesto Vigente</th>
   </tr>
-  <% @maker.projects.each do |project| %>
+  <% @maker.projects.order(:year_id).each do |project| %>
     <tr>
-      <td><%= project.year.year %></td>
-      <td><%= link_to project.nombre, maker_project_path(@maker.id, project.id)  %></td>
-      <td><%= number_to_currency(project.apropiacion_vigente, precision: 0) %></td>
+      <td class="text-center"><%= project.year.year %></td>
+      <td class="text-center"><%= link_to project.nombre, maker_project_path(@maker.id, project.id)  %></td>
+      <td class="text-center"><%= number_to_currency(project.apropiacion_vigente, precision: 0) %></td>
     </tr>
 
   <% end  %>

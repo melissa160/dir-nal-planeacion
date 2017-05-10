@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 yearn = 2001
 
-18.times do   
+16.times do   
   yearn += 1
   Year.create(year: yearn)
 end
