@@ -21,7 +21,29 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+
   end
+
+  def edit
+    @maker = Maker.find(params[:maker_id])
+    @project = Project.find(params[:id])
+    @year = Year.all
+  end
+
+  def update
+    @maker = Maker.find(params[:maker_id])
+    @project = @maker.projects.find(params[:id]) if @maker
+    @project.update(project_params)
+    redirect_to maker_path(@project.maker_id)
+  end
+
+  def destroy
+    @maker = Maker.find(params[:maker_id])
+    @project = @maker.projects.find(params[:id]) if @maker
+    @project.destroy
+    redirect_to maker_path(@project.maker_id)
+  end
+
 
   private   
   def project_params     

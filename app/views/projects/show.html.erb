@@ -19,6 +19,8 @@
       <td><%= number_to_currency(@project.pagos, precision: 0) %></td>
     </tr>
   </table>
-  <%= link_to "Volver al ejecutor de este proyecto", maker_path(@project.maker_id) %>
 
+  <%= link_to "Editar este proyecto", edit_maker_project_path(@project.maker_id, @project.id)  %>
+  <div><%= link_to "Eliminar este proyecto", maker_project_path(@project.maker_id, @project.id), method: "DELETE"  %></div> 
+  <p><%= link_to "Volver al ejecutor de este proyecto", maker_path(@project.maker_id) %></p> 
 </div>
