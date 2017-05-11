@@ -16,4 +16,7 @@ class Api::V1::MakersController < ApiController
       @makers = @makers.where("codigo = ?", "#{codigo.to_i}")
     end
   end
+
+
+  
 end
