@@ -9,9 +9,18 @@ class Api::V1::ProjectsController < ApiController
     json_response(@projects)
   end
 
+  def create
+    @maker.projects.create!(project_params)
+    json_response(@maker.projects, :created)
+  end
+
   private
   def set_maker
     @maker = Maker.find(params[:maker_id])
+  end
+
+  def project_params
+    params.permit(:nombre,:apropiacion_inicial, :apropiacion_vigente, :compromisos, :obligaciones, :pagos, :year_id)
   end
 
 end
