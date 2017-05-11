@@ -25,6 +25,14 @@ class Api::V1::MakersController < ApiController
 
   def show
     @maker = Maker.find(params[:id])
+    json_response(@maker)
+  end
+
+  # PUT makers/:id
+  def update
+    @maker = Maker.find(params[:id])
+    @maker.update(maker_params)
+    head :no_content
   end 
 
   private
