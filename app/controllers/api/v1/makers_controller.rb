@@ -17,6 +17,19 @@ class Api::V1::MakersController < ApiController
     end
   end
 
+  def create
+    @maker = Maker.create(maker_params)
+    redirect_to api_v1_maker_path(@maker.id)
+  end
 
+  def show
+    @maker = Maker.find(params[:id])
+  end 
+
+  private
+
+  def maker_params
+    params.require(:maker).permit(:codigo, :sector, :unidad_ejecutora)
+  end
   
 end
