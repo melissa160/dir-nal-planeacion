@@ -14,6 +14,11 @@ class Api::V1::ProjectsController < ApiController
     json_response(@maker.projects, :created)
   end
 
+  def show
+    @project = @maker.projects.find(params[:id]) if @maker
+    json_response(@project)
+  end
+
   private
   def set_maker
     @maker = Maker.find(params[:maker_id])
