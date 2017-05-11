@@ -15,6 +15,7 @@ class Api::V1::MakersController < ApiController
       codigo = params[:codigo]
       @makers = @makers.where("codigo = ?", "#{codigo.to_i}")
     end
+    json_response(@makers)
   end
 
   def create
