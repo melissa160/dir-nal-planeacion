@@ -6,6 +6,7 @@ class Api::V1::ProjectsController < ApiController
     if params[:nombre].present?
       @projects = @projects.where("nombre ILIKE ?", "%#{params[:nombre]}%")
     end
+    json_response(@projects)
   end
 
   private
