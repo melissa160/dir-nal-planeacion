@@ -35,6 +35,13 @@ class Api::V1::MakersController < ApiController
     head :no_content
   end 
 
+  # DELETE makers/:id
+  def destroy
+    @maker = Maker.find(params[:id])
+    @maker.destroy
+    head :no_content
+  end
+
   private
 
   def maker_params
