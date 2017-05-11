@@ -19,8 +19,8 @@ class Api::V1::MakersController < ApiController
   end
 
   def create
-    @maker = Maker.create(maker_params)
-    redirect_to api_v1_maker_path(@maker.id)
+    @maker = Maker.create!(maker_params)
+    json_response(@maker, :created)
   end
 
   def show
