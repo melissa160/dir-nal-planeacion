@@ -25,6 +25,12 @@ class Api::V1::ProjectsController < ApiController
     head :no_content
   end
 
+  def destroy
+    @project = @maker.projects.find(params[:id]) if @maker
+    @project.destroy
+    head :no_content
+  end
+
   private
   def set_maker
     @maker = Maker.find(params[:maker_id])
