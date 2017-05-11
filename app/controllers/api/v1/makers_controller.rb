@@ -29,7 +29,7 @@ class Api::V1::MakersController < ApiController
   private
 
   def maker_params
-    params.require(:maker).permit(:codigo, :sector, :unidad_ejecutora)
+    params.permit(:codigo, :sector, :unidad_ejecutora)
   end
   
 end
